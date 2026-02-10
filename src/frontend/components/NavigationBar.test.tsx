@@ -23,7 +23,8 @@ describe('NavigationBar', () => {
     );
 
     // Check that all navigation links are present
-    expect(screen.getByText('Home')).toBeDefined();
+    expect(screen.getByText('Dashboard')).toBeDefined();
+    expect(screen.getByText('Planner')).toBeDefined();
     expect(screen.getByText('About')).toBeDefined();
     expect(screen.getByText('AI Chat')).toBeDefined();
   });
@@ -45,18 +46,20 @@ describe('NavigationBar', () => {
       </BrowserRouter>
     );
 
-    const homeLink = screen.getByText('Home').closest('a');
+    const dashboardLink = screen.getByText('Dashboard').closest('a');
+    const plannerLink = screen.getByText('Planner').closest('a');
     const aboutLink = screen.getByText('About').closest('a');
     const aiChatLink = screen.getByText('AI Chat').closest('a');
 
-    expect(homeLink?.getAttribute('href')).toBe('/');
+    expect(dashboardLink?.getAttribute('href')).toBe('/');
+    expect(plannerLink?.getAttribute('href')).toBe('/planner');
     expect(aboutLink?.getAttribute('href')).toBe('/about');
     expect(aiChatLink?.getAttribute('href')).toBe('/ai-chat');
   });
 
-  it('should highlight active page on home route', () => {
+  it('should highlight active page on dashboard route', () => {
     // Mock window.location for testing
-    window.history.pushState({}, 'Home', '/');
+    window.history.pushState({}, 'Dashboard', '/');
 
     render(
       <BrowserRouter>
@@ -64,8 +67,8 @@ describe('NavigationBar', () => {
       </BrowserRouter>
     );
 
-    const homeLink = screen.getByText('Home').closest('a');
-    expect(homeLink?.className).toContain('active');
+    const dashboardLink = screen.getByText('Dashboard').closest('a');
+    expect(dashboardLink?.className).toContain('active');
   });
 
   it('should apply nav-link class to all navigation links', () => {
@@ -75,11 +78,13 @@ describe('NavigationBar', () => {
       </BrowserRouter>
     );
 
-    const homeLink = screen.getByText('Home').closest('a');
+    const dashboardLink = screen.getByText('Dashboard').closest('a');
+    const plannerLink = screen.getByText('Planner').closest('a');
     const aboutLink = screen.getByText('About').closest('a');
     const aiChatLink = screen.getByText('AI Chat').closest('a');
 
-    expect(homeLink?.className).toContain('nav-link');
+    expect(dashboardLink?.className).toContain('nav-link');
+    expect(plannerLink?.className).toContain('nav-link');
     expect(aboutLink?.className).toContain('nav-link');
     expect(aiChatLink?.className).toContain('nav-link');
   });

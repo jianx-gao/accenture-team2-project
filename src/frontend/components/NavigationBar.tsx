@@ -5,7 +5,7 @@ import './NavigationBar.css';
  * NavigationBar component provides consistent navigation across all pages
  * 
  * Features:
- * - Links to Home, About, and AI Chat pages
+ * - Links to Dashboard, Planner, About, and AI Chat pages
  * - Active page highlighting
  * - Responsive design
  * 
@@ -32,7 +32,15 @@ function NavigationBar() {
               to="/" 
               className={`nav-link ${isActive('/') ? 'active' : ''}`}
             >
-              Home
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/planner" 
+              className={`nav-link ${isActive('/planner') ? 'active' : ''}`}
+            >
+              Planner
             </Link>
           </li>
           <li>
