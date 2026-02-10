@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020"],
+    "outDir": "./dist/backend",
+    "rootDir": "./src",
+    "noEmit": false,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "types": ["node"]
+  },
+  "include": [
+    "src/backend/**/*",
+    "src/shared/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/frontend",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
+}

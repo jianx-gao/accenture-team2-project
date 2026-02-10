@@ -1,0 +1,16 @@
+.ai-chat-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ai-chat-page h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.ai-chat-page p {
+  font-size: 1.1rem;
+  color: #666;
+}

@@ -319,27 +319,30 @@ This implementation plan breaks down the Budget Scoper feature into discrete Typ
     - Implement explain_approach_impact() to show how approach affects budget
     - _Requirements: 9.3, 9.5_
 
-- [ ] 14. Implement data persistence layer
+- [ ] 14. Backend data persistence layer (Reserved for team members)
   - [ ] 14.1 Create repository interfaces
     - Define IBudgetRepository interface with CRUD operations
     - Define IVendorRepository interface
     - Define IHistoryStore interface for snapshots
     - _Requirements: 10.1_
+    - _Note: Implementation left empty for team members to add JSON format logic_
 
-  - [ ] 14.2 Implement in-memory repositories for testing
-    - Create InMemoryBudgetRepository
-    - Create InMemoryVendorRepository
-    - Create InMemoryHistoryStore
+  - [ ] 14.2 Implement JSON-based data storage (Team member task)
+    - Create JSON file structure for budgets, vendors, and history
+    - Implement read/write operations with proper error handling
+    - Add data validation and schema enforcement
     - _Requirements: 10.1_
+    - _Note: Team members will implement their JSON format logic here_
 
   - [ ]* 14.3 Write property test for data persistence and retrieval
     - **Property 29: Data persistence and retrieval**
     - **Validates: Requirements 10.1, 10.5**
 
-  - [ ] 14.4 Implement automatic save on modifications
+  - [ ] 14.4 Implement automatic save on modifications (Team member task)
     - Add event listeners for budget changes
-    - Trigger repository saves automatically
+    - Trigger repository saves automatically to JSON files
     - _Requirements: 10.5_
+    - _Note: Team members will connect this to their JSON storage implementation_
 
 - [ ] 15. Implement ExportManager
   - [ ] 15.1 Create ExportManager class with format handlers
@@ -416,3 +419,7 @@ This implementation plan breaks down the Budget Scoper feature into discrete Typ
 - The implementation follows a layered architecture: domain → application → data → presentation
 - Error handling is implemented as a cross-cutting concern throughout all layers
 - Integration tests verify end-to-end workflows across multiple components
+- **Backend data persistence (Task 14)**: Reserved for team members to implement their JSON format logic
+  - Only interfaces will be created initially
+  - Team members will add JSON file storage implementation
+  - This allows parallel work on frontend/business logic while backend storage is developed
